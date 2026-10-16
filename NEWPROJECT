@@ -1,0 +1,37 @@
+#include <iostream> // iostream library include kar rahe hain, taaki cout, cin use kar sakein
+#include <string> // string library include kar rahe hain, taaki string data type use ho sake
+using namespace std; // std:: likhne se bachne ke liye, ab direct cout, cin likh sakte hain
+
+int main() { // program ki shuruat yahan se hoti hai
+    string name; // student ka naam store karne ke liye string variable banaya
+    int marks[5]; // 5 subject ke marks store karne ke liye ek array banaya [0,1,2,3,4]
+    int total = 0; // total marks ko jodne ke liye variable, shuru me 0 rakha
+
+    cout << "Enter student name: "; // screen par "Enter student name: " print hoga
+    getline(cin, name); // user se pura naam lega, space ke saath bhi (cin >> se space ke baad cut ho jata)
+
+    for(int i = 0; i < 5; i++) { // loop 0 se 4 tak 5 baar chalega, har subject ke liye
+        cout << "Enter marks of subject " << i+1 << ": "; // Subject 1, 2, 3... aise print karega
+        cin >> marks[i]; // user jo marks dalega vo array me save ho jayega
+        total = total + marks[i]; // har baar total me us subject ka mark add hota jayega
+    }
+
+    // Typecasting int to float for correct percentage
+    float percentage = (float)total / 5; // total (int) ko float me badla, taaki 89.5 jaisa decimal aaye, warna 89 hi aata
+
+    cout << "\n--- Report Card ---\n"; // report card ka heading
+    cout << "Name: " << name << endl; // naam print karega
+    cout << "Total: " << total << endl; // total print karega
+    cout << "Percentage: " << percentage << "%" << endl; // percentage print karega
+
+    if(percentage >= 90) { // agar 90 ya usse zyada hai to
+        cout << "Grade: A"; // Grade A
+    } else if(percentage >= 75) { // warna agar 75 ya usse zyada hai to
+        cout << "Grade: B"; // Grade B
+    } else if(percentage >= 50) { // warna agar 50 ya usse zyada hai to
+        cout << "Grade: C"; // Grade C
+    } else { // in sab se kam hai to
+        cout << "Grade: FAIL"; // FAIL
+    }
+    return 0; // program successfully khatam, OS ko 0 bhej diya
+}
